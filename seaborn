@@ -1,0 +1,155 @@
+# Python program to illustrate 
+# Plotting categorical scatter 
+# plots with Seaborn 
+
+# importing the required module 
+import matplotlib.pyplot as plt 
+import seaborn as sns 
+
+# x axis values 
+x =['sun', 'mon', 'fri', 'sat', 'tue', 'wed', 'thu'] 
+
+# y axis values 
+y =[5, 6.7, 4, 6, 2, 4.9, 1.8] 
+
+# plotting strip plot with seaborn 
+ax = sns.stripplot(x, y); 
+
+# giving labels to x-axis and y-axis 
+ax.set(xlabel ='Days', ylabel ='Amount_spend') 
+
+# giving title to the plot 
+plt.title('Strip Plot'); 
+
+# function to show plot 
+plt.show() 
+
+# Stripplot using inbuilt data-set given in seaborn :
+# Python program to illustrate 
+# Stripplot using inbuilt data-set 
+# given in seaborn 
+
+# importing the required module 
+import matplotlib.pyplot as plt 
+import seaborn as sns 
+
+# use to set style of background of plot 
+sns.set(style ="whitegrid") 
+
+# loading data-set 
+iris = sns.load_dataset('iris'); 
+
+# plotting strip plot with seaborn 
+# deciding the attributes of dataset on which plot should be made 
+ax = sns.stripplot(x = 'species', y = 'sepal_length', data = iris); 
+
+# giving title to the plot 
+plt.title('Strip Plot IRIS') 
+
+# function to show plot 
+plt.show() 
+"""
+Explanation:
+
+iris is the dataset already present in seaborn module for use.
+
+We use .load_dataset() function in order to load the data.We can also load any other file by giving path 
+and name of file in the argument.
+.set(style=”whitegrid”) function here is also use to define the background of plot.We can use “darkgrid”
+
+instead of whitegrid if we want dark colored background.
+
+In .stripplot() function we have define which attribute of the dataset to be on x-axis 
+and which attribute of dataset should on y-axis.data = iris means attributes 
+which we define earlier should be taken from the given data.
+We can also draw this plot with matplotlib but problem with matplotlib 
+is its default parameters. The reason why Seaborn is so great with DataFrames is,
+ for example, labels from DataFrames are automatically propagated to plots or other data structures
+ as you see in the above figure column name species comes on x-axis and column name stepal_length comes on y-aixs, 
+ that is not possible with matplotlib. We have to explicitly define the labels of x-axis and y-axis.
+"""
+# Python program to illustrate 
+# plotting using Swarmplot 
+
+# importing the required module 
+import matplotlib.pyplot as plt 
+import seaborn as sns 
+
+# use to set style of background of plot 
+sns.set(style ="whitegrid") 
+
+# loading data-set 
+iris = sns.load_dataset('iris'); 
+
+# plotting strip plot with seaborn 
+# deciding the attributes of dataset on which plot should be made 
+ax = sns.swarmplot(x = 'species', y = 'sepal_length', data = iris); 
+
+# giving title to the plot 
+plt.title('Swarm Plot') 
+
+# function to show plot 
+plt.show() 
+"""
+Explanation:
+This is very much similar to striplot but the only difference is that is do not allow overlapping
+ of markers.It cause jittering in the markers of the plot so that graph can easily be readed without
+ information loss as seen in the above plot.
+
+We use .swarmplot() function to plot swarn plot.
+Another difference that we can notice in Seaborn and Matplotlib
+ is that working with DataFrames doesn’t go quite as smoothly with Matplotlib, 
+ which can be annoying if we doing exploratory analysis with Pandas. 
+ And that’s exactly what Seaborn do easily, the plotting functions operate
+ on DataFrames and arrays that contain a whole dataset.
+"""
+#  If we want we can also change the representation of data on a particular axis. 
+# importing the required module 
+import matplotlib.pyplot as plt 
+import seaborn as sns 
+
+# use to set style of background of plot 
+sns.set(style ="whitegrid") 
+
+# loading data-set 
+iris = sns.load_dataset('iris'); 
+
+# plotting strip plot with seaborn 
+# deciding the attributes of dataset on which plot should be made 
+ax = sns.swarmplot(x = 'sepal_length', y = 'species', data = iris); 
+
+
+# giving title to the plot 
+plt.title('Swarm Plot 2') 
+
+# function to show plot 
+plt.show() 
+
+# Box and Wisker Plot
+sns.boxplot(x = 'species', y = 'sepal_length', data = iris)
+plt.show() 
+# Bottom black horizontal line of blue box plot is minimum value
+# First black horizontal line of rectangle shape of blue box plot is First quartile or 25%
+# Second black horizontal line of rectangle shape of blue box plot is Second quartile or 50% or median.
+# Third black horizontal line of rectangle shape of blue box plot is third quartile or 75%
+# Top black horizontal line of rectangle shape of blue box plot is maximum value.
+# Small diamond shape of blue box plot is outlier data or erroneous data.
+
+# use the function regplot to make a scatterplot
+plt.title('Scatter Plot - Regression Fit') 
+sns.regplot(x=iris["sepal_length"], y=iris["sepal_width"])
+plt.show()
+ 
+# Without regression fit:
+plt.title('Scatter Plot - No Regression Fit') 
+sns.regplot(x=iris["sepal_length"], y=iris["sepal_width"], fit_reg=False)
+plt.show()
+
+# Marker
+plt.title('Scatter Plot - Regression Fit') 
+sns.regplot(x=iris["sepal_length"], y=iris["sepal_width"], marker = '+')
+plt.show()
+
+sns.scatterplot(x = 'species', y = 'sepal_length', data = iris)
+plt.show()
+
